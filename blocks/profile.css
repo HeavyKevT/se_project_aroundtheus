@@ -1,0 +1,77 @@
+.profile {
+  display: flex;
+  align-items: center;
+  max-height: 120px;
+  padding-top: 40px;
+  margin-bottom: 51px;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "title button"
+    "description description";
+  grid-template-columns: minmax(auto, 373px) auto;
+  grid-template-rows: minmax(auto, 39px) minmax(auto, 22px);
+  align-items: center;
+  gap: 16px 18px;
+}
+
+.profile__edit-button {
+  background: transparent url(../images/edit-icon.svg) center no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+  border: 1px solid #ffffff;
+}
+
+.profile__edit-button:hover {
+  background: transparent url(../images/edit-hover.svg) center no-repeat;
+  border: 1px solid grey;
+}
+
+.profile__add-button {
+  background: transparent url(../images/add-icon.svg) center no-repeat;
+  height: 50px;
+  min-width: 150px;
+  margin-left: auto;
+  border: 2px solid #ffffff;
+}
+
+.profile__add-button:hover {
+  background: transparent url(../images/add-hover.svg) center no-repeat;
+  border: 1px solid grey;
+}
+
+.profile__title {
+  font-family: Inter, "-apple-system", "Segou UI";
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  grid-area: title;
+  align-self: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.profile__description {
+  font-size: 18px;
+  max-width: 415px;
+  max-height: 22px;
+  font-weight: 400;
+  grid-area: description;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+  margin-right: 26px;
+  margin-left: 22px;
+}

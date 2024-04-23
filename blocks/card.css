@@ -1,0 +1,59 @@
+.card__list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-gap: 20px 17px;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__image {
+  height: 282px;
+  width: 282px;
+  border-radius: 10px 10px 0 0;
+}
+
+.card__label {
+  display: flex;
+  background-color: white;
+  color: black;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 10px 10px;
+  gap: 0;
+}
+
+.card__label-name {
+  max-width: 219px;
+  margin: 0;
+  margin-right: auto;
+  font-family: Inter, "-apple-system", "Segou UI";
+  font-weight: 900;
+  font-size: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__like-button {
+  background: transparent url(../images/like-inactive.svg) center no-repeat;
+  height: 18px;
+  min-width: 21px;
+  border: none;
+  padding: 0;
+  margin-right: 30px;
+  margin-left: auto;
+}
+
+.card__like-button:hover {
+  background: transparent url(../images/like-hover.svg) center no-repeat;
+}
