@@ -57,3 +57,10 @@
 .card__like-button:hover {
   background: transparent url(../images/like-hover.svg) center no-repeat;
 }
+
+@media screen and (max-width: 330px) {
+  .card {
+    min-width: 282px;
+    height: 361px;
+  }
+}

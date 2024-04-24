@@ -9,3 +9,10 @@
   left: 27px;
   position: relative;
 }
+
+@media screen and (max-width: 775px) {
+  .header {
+    max-width: 600px;
+    margin: 45px auto 0;
+  }
+}
