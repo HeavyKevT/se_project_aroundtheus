@@ -1,12 +1,11 @@
 .header {
   position: relative;
   margin-top: 45px;
-  height: 74px;
-  border-bottom: 1px solid #545454;
+  padding-bottom: 41px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 .header__logo {
-  left: 27px;
   position: relative;
 }
 
@@ -14,5 +13,23 @@
   .header {
     max-width: 600px;
     margin: 45px auto 0;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    padding-bottom: 32px;
+    margin-top: 28px;
+  }
+
+  .header__logo {
+    height: 24px;
+    width: 126px;
   }
 }

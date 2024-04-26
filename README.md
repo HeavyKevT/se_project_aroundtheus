@@ -26,3 +26,10 @@ This webpage will soon allow users to display their name, a description of thems
 **Technologies and Techniques**
 HTML
 CSS
+
+**Live Site**
+The site is live at:
+https://heavykevt.github.io/se_project_aroundtheus/
+
+**Project Explanatioin**
+https://1drv.ms/v/c/494e474ae1ef2b49/EXxFgrKTz0VKrlNjWIZ-3R8BFPDSQknYWVE_ueP22bNrpg?e=aaY8JT
