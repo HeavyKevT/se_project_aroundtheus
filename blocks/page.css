@@ -16,3 +16,10 @@
   padding-left: 5px;
   padding-right: 5px;
 }
+
+@media screen and (max-width: 320px) {
+  .page__content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
