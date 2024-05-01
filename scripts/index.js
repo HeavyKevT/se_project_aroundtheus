@@ -1,4 +1,4 @@
-initialCards = [
+let initialCards = [
   {
     name: "Glencoe, Scotland",
     link: "https://unsplash.com/photos/green-and-brown-mountains-beside-river-under-blue-sky-and-white-clouds-during-daytime-mKjXta9DGc8",
