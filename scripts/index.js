@@ -29,3 +29,17 @@ let initialCards = [
     link: "https://unsplash.com/photos/snow-covered-mountain-in-reflective-photography-vmra8DWORZc",
   },
 ];
+
+//open modal
+let editButton = document.querySelector(".profile__edit-button");
+editButton.addEventListener("click", openModal);
+function openModal() {
+  document.querySelector(".modal").classList.add("modal_opened");
+}
+
+//close modal
+let closeButton = document.querySelector(".modal__close");
+closeButton.addEventListener("click", closeModal);
+function closeModal() {
+  document.querySelector(".modal").classList.remove("modal_opened");
+}
