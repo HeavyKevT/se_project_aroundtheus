@@ -1,32 +1,32 @@
 let initialCards = [
   {
-    name: "Glencoe, Scotland",
-    link: "https://unsplash.com/photos/green-and-brown-mountains-beside-river-under-blue-sky-and-white-clouds-during-daytime-mKjXta9DGc8",
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
 
   {
-    name: "Nāpali Coast, Hawaii",
-    link: "https://unsplash.com/photos/brown-and-green-mountain-ridge-near-body-of-water-Jat5D3lH_FA",
+    name: "Lake Louise",
+    link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
   },
 
   {
-    name: "Banff National Park, Canada",
-    link: "https://unsplash.com/photos/lake-by-the-mountains-near-pine-trees-lWMMq8Hh6Dg",
+    name: "Bald Mountains",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
   },
 
   {
-    name: "Uyuni Salt Flat, Bolivia",
-    link: "https://unsplash.com/photos/white-clouds-under-blue-sky-7BG3z3N6zAI",
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
   },
 
   {
-    name: "Le Morne Brabant, Mauritius",
-    link: "https://unsplash.com/photos/aerial-photography-of-sea-near-mountain-at-daytime-WV4B_aVj0aQ",
+    name: "Vanoise National Park",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
   },
 
   {
-    name: "Torres Del Paine, Chile",
-    link: "https://unsplash.com/photos/snow-covered-mountain-in-reflective-photography-vmra8DWORZc",
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
 
@@ -41,6 +41,9 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const closeButton = document.querySelector(".modal__close");
 const editButton = document.querySelector(".profile__edit-button");
+const cardTemplate =
+  document.querySelector("#card-template").content.firstElementChild;
+const cardList = document.querySelector(".cards__list");
 
 // Functions
 function closeModal() {
@@ -53,6 +56,21 @@ function openModal() {
   document.querySelector(".modal").classList.add("modal_opened");
 }
 
+function getCardElement(data) {
+  // clone the template element with all its content and store it in a cardElement variable
+  const cardElement = cardTemplate.cloneNode(true);
+  // access the card title and image and store them in variables
+  let cardTitle = cardElement.querySelector(".card__label-name");
+  let cardImage = cardElement.querySelector(".card__image");
+  // set the path to the image to the link field of the object
+  cardImage.src = data.link;
+  // set the image alt text to the name field of the object
+  cardImage.alt = data.name;
+  // set the card title to the name field of the object, too
+  cardTitle.textContent = data.name;
+  return cardElement;
+}
+
 // Event Handlers
 function handleProfileEditSubmit(e) {
   e.preventDefault();
@@ -63,7 +81,11 @@ function handleProfileEditSubmit(e) {
 
 // Event Listeners
 closeButton.addEventListener("click", closeModal);
-
 editButton.addEventListener("click", openModal);
-
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
+initialCards.forEach((data) => {
+  const cardElement = getCardElement(data);
+  // return the ready HTML element with the filled-in data
+  cardList.prepend(cardElement);
+});
