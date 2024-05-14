@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -34,11 +34,14 @@ let initialCards = [
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#profile-title-input");
+
+const profileTitleInput = document.querySelector("[name='modal_title']");
 const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
+  "[name='modal_description']"
 );
-const profileEditForm = profileEditModal.querySelector(".modal__form");
+
+const profileForm = document.forms["profile-form"];
+
 const closeButton = document.querySelector(".modal__close");
 const editButton = document.querySelector(".profile__edit-button");
 const cardTemplate =
@@ -47,21 +50,21 @@ const cardList = document.querySelector(".cards__list");
 
 // Functions
 function closeModal() {
-  document.querySelector(".modal").classList.remove("modal_opened");
+  profileEditModal.classList.remove("modal_opened");
 }
 
 function openModal() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  document.querySelector(".modal").classList.add("modal_opened");
+  profileEditModal.classList.add("modal_opened");
 }
 
 function getCardElement(data) {
   // clone the template element with all its content and store it in a cardElement variable
   const cardElement = cardTemplate.cloneNode(true);
   // access the card title and image and store them in variables
-  let cardTitle = cardElement.querySelector(".card__label-name");
-  let cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__label-name");
+  const cardImage = cardElement.querySelector(".card__image");
   // set the path to the image to the link field of the object
   cardImage.src = data.link;
   // set the image alt text to the name field of the object
@@ -82,7 +85,7 @@ function handleProfileEditSubmit(e) {
 // Event Listeners
 closeButton.addEventListener("click", closeModal);
 editButton.addEventListener("click", openModal);
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileForm.addEventListener("submit", handleProfileEditSubmit);
 
 initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
