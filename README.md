@@ -34,9 +34,3 @@ https://heavykevt.github.io/se_project_aroundtheus/
 
 **Project Explanatioin**
 https://1drv.ms/v/c/494e474ae1ef2b49/EXxFgrKTz0VKrlNjWIZ-3R8BFPDSQknYWVE_ueP22bNrpg?e=aaY8JT
-
-**Screenshots**
-
-![alt text](<images/Screenshot 2024-06-14 at 12.10.28.png>)
-
-![alt text](<Screenshot 2024-06-14 at 12.11.44.png>)
