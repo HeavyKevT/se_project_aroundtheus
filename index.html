@@ -42,9 +42,9 @@
             aria-label="add"
           ></button>
         </section>
-        <section class="cards page__section">
+        <div class="cards page__section">
           <ul class="cards__list"></ul>
-        </section>
+        </div>
       </main>
       <footer class="footer page__section">
         <p class="footer__text">&copy;2024 Around The U.S.</p>
@@ -61,14 +61,12 @@
             type="text"
             name="modal_title"
             placeholder="Jacques Cousteau"
-            id="profile-title-input"
           />
           <input
             class="modal__input"
             type="text"
             name="modal_description"
             placeholder="Explorer"
-            id="profile-description-input"
           />
           <button class="modal__button">Save</button>
         </form>
@@ -79,22 +77,20 @@
       <div class="modal__container">
         <button id="addCloseButton" class="modal__close"></button>
         <h3 class="modal__heading">New Place</h3>
-        <form class="modal__form" id="profile-form">
+        <form class="modal__form">
           <input
             class="modal__input"
             type="text"
             name="modal_title"
             placeholder="Title"
-            id="profile-title-input"
           />
           <input
             class="modal__input"
             type="text"
             name="link"
             placeholder="Image Link"
-            id="profile-description-input"
           />
-          <button class="modal__button">Save</button>
+          <button class="modal__button">Create</button>
         </form>
       </div>
     </div>
@@ -117,8 +113,10 @@
     <template id="picture-modal-template">
       <div class="modal-image">
         <div class="modal-image__container">
-          <button id="imageCloseButton" class="modal__close"></button>
-
+          <button
+            id="imageCloseButton"
+            class="modal__close modal__close_image"
+          ></button>
           <figure class="modal-image__inner-container">
             <img class="modal-image__picture" src="" alt="" />
           </figure>
