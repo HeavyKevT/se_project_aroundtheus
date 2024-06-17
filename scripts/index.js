@@ -145,11 +145,6 @@ editButton.addEventListener("click", () => {
 });
 addButton.addEventListener("click", () => {
   openModal(profileAddModal);
-  //Clear the previous input values
-  const inputs = profileAddModal.querySelectorAll("#profile-add-modal input");
-  inputs.forEach((input) => {
-    input.value = "";
-  });
 });
 profileForm.addEventListener("submit", handleProfileEditSubmit);
 addModalForm.addEventListener("submit", handleProfileAddSubmit);
