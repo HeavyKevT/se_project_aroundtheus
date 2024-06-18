@@ -73,9 +73,6 @@ function openImageModal(data) {
   imageModalPicture.alt = data.name;
   imageModalTitle.textContent = data.name;
 
-  //Force reflow (for image transition)
-  imageModal.offsetHeight;
-
   openModal(imageModal);
 }
 
