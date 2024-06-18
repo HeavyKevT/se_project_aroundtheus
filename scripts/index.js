@@ -122,10 +122,7 @@ function handleProfileAddSubmit(e) {
   const cardView = getCardView({ name, link });
   renderCard(cardView, cardList);
   closeModal(profileAddModal);
-  const inputs = profileAddModal.querySelectorAll("#profile-add-modal input");
-  inputs.forEach((input) => {
-    input.value = "";
-  });
+  e.target.reset();
 }
 
 //Close Button Universal Handler
