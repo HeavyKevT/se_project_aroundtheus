@@ -55,19 +55,37 @@
       <div class="modal__container">
         <button id="editCloseButton" class="modal__close button"></button>
         <h3 class="modal__heading">Edit profile</h3>
-        <form class="modal__form" id="profile-form">
-          <input
-            class="modal__input"
-            type="text"
-            name="modal_title"
-            placeholder="Jacques Cousteau"
-          />
-          <input
-            class="modal__input"
-            type="text"
-            name="modal_description"
-            placeholder="Explorer"
-          />
+        <form class="modal__form" id="profile-form" novalidate>
+          <label
+            ><input
+              id="modal_profile_name-input"
+              class="modal__input"
+              type="text"
+              name="modal_title"
+              placeholder="Jacques Cousteau"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span id="modal_profile_name-input-error" class="modal__input-error"
+              >Hello, world!</span
+            ></label
+          >
+          <label
+            ><input
+              id="modal_description-input"
+              class="modal__input"
+              type="text"
+              name="modal_description"
+              placeholder="Explorer"
+              minlength="2"
+              maxlength="200"
+              required />
+            <span
+              id="modal_description-input-error"
+              class="modal__input-error"
+            ></span
+          ></label>
           <button class="modal__button button submit">Save</button>
         </form>
       </div>
@@ -77,19 +95,23 @@
       <div class="modal__container">
         <button id="addCloseButton" class="modal__close button"></button>
         <h3 class="modal__heading">New Place</h3>
-        <form id="add-modal-form" class="modal__form">
+        <form id="add-modal-form" class="modal__form" novalidate>
           <input
+            id="modal_title-input"
             class="modal__input"
             type="text"
             name="modal_title"
             placeholder="Title"
           />
+          <span id="modal_title-input-error" class="modal__input-error"></span>
           <input
+            id="modal_link-input"
             class="modal__input"
             type="text"
             name="link"
             placeholder="Image Link"
           />
+          <span id="modal_link-input-error" class="modal__input-error"></span>
           <button class="modal__button button submit">Create</button>
         </form>
       </div>
@@ -126,5 +148,6 @@
     </template>
 
     <script src="scripts/index.js"></script>
+    <script src="scripts/validation.js"></script>
   </body>
 </html>
