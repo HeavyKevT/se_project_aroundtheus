@@ -30,14 +30,14 @@
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
-              class="profile__edit-button button"
+              class="profile__edit-button button open-modal-btn"
               type="button"
               aria-label="edit"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button
-            class="profile__add-button button"
+            class="profile__add-button button open-modal-btn"
             type="button"
             aria-label="add"
           ></button>
@@ -56,7 +56,7 @@
         <button id="editCloseButton" class="modal__close button"></button>
         <h3 class="modal__heading">Edit profile</h3>
         <form class="modal__form" id="profile-form" novalidate>
-          <label
+          <label class="modal__form-label"
             ><input
               id="modal_profile_name-input"
               class="modal__input"
@@ -65,13 +65,13 @@
               placeholder="Jacques Cousteau"
               minlength="2"
               maxlength="40"
-              required
-            />
-            <span id="modal_profile_name-input-error" class="modal__input-error"
-              >Hello, world!</span
-            ></label
-          >
-          <label
+              required />
+            <span
+              id="modal_profile_name-input-error"
+              class="modal__input-error"
+            ></span
+          ></label>
+          <label class="modal__form-label"
             ><input
               id="modal_description-input"
               class="modal__input"
@@ -86,7 +86,13 @@
               class="modal__input-error"
             ></span
           ></label>
-          <button class="modal__button button submit">Save</button>
+          <button
+            class="modal__button button submit modal__button_disabled"
+            type="submit"
+            disabled
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -96,23 +102,40 @@
         <button id="addCloseButton" class="modal__close button"></button>
         <h3 class="modal__heading">New Place</h3>
         <form id="add-modal-form" class="modal__form" novalidate>
-          <input
-            id="modal_title-input"
-            class="modal__input"
-            type="text"
-            name="modal_title"
-            placeholder="Title"
-          />
-          <span id="modal_title-input-error" class="modal__input-error"></span>
-          <input
-            id="modal_link-input"
-            class="modal__input"
-            type="text"
-            name="link"
-            placeholder="Image Link"
-          />
-          <span id="modal_link-input-error" class="modal__input-error"></span>
-          <button class="modal__button button submit">Create</button>
+          <label class="modal__form-label">
+            <input
+              id="modal_title-input"
+              class="modal__input"
+              type="text"
+              name="modal_title"
+              placeholder="Title"
+              minlength="1"
+              maxlength="30"
+              required
+            />
+            <span
+              id="modal_title-input-error"
+              class="modal__input-error"
+            ></span>
+          </label>
+          <label class="modal__form-label">
+            <input
+              id="modal_link-input"
+              class="modal__input"
+              type="text"
+              name="link"
+              placeholder="Image Link"
+              pattern="^http.*"
+              required
+            />
+            <span id="modal_link-input-error" class="modal__input-error"></span>
+          </label>
+          <button
+            class="modal__button button submit modal__button_disabled"
+            disabled
+          >
+            Create
+          </button>
         </form>
       </div>
     </div>

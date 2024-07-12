@@ -49,16 +49,36 @@ const imageModal = document.querySelector(".modal-image");
 const imageModalTitle = imageModal.querySelector(".modal-image__title");
 const imageModalPicture = imageModal.querySelector(".modal-image__picture");
 const closeButtons = document.querySelectorAll(".modal__close");
+const modalElement = document.querySelector(".modal");
+const openButton = document.querySelector(".open-modal-btn");
 
 /**********
  Functions
  **********/
+// function openModal(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("click", handleOutsideClick);
+// }
+
+// function closeModal(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("click", handleOutsideClick);
+// }
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  // Use an arrow function to pass the specific modal to handleOutsideClick
+  document.addEventListener("click", (event) =>
+    handleOutsideClick(event, modal)
+  );
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  // Remove the event listener
+  document.removeEventListener("click", (event) =>
+    handleOutsideClick(event, modal)
+  );
 }
 
 function renderCard(cardEl, container) {
@@ -147,3 +167,31 @@ initialCards.forEach((data) => {
   const cardView = getCardView(data);
   renderCard(cardView, cardList);
 });
+
+//Create function that adds event listener then removes it
+
+// element.removeEventListener("click", handleClick);
+
+//add Click Listener to document
+// document.addEventListener("click", handleOutsideClick);(event) => {
+//   if (
+//     !event.target.closest(".modal") &&
+//     !event.target.classList.contains(".modal")
+//   ) {
+//     console.log("clicked");
+//     // $(".modalDialog").hide();
+//     return;
+//   }
+// });
+
+//remove Click Listener from document
+
+function handleOutsideClick(event, modal) {
+  if (
+    !event.target.classList.contains("open-modal-btn") && // If it's not the open button
+    !event.target.closest(".modal") && // If it's not inside the modal
+    !event.target.classList.contains("modal") // If it's not the modal itself
+  ) {
+    closeModal(modal); // Close the specific modal
+  }
+}
