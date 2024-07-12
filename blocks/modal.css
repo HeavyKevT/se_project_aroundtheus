@@ -127,17 +127,17 @@
   position: relative;
 }
 
-.modal__form {
-}
-
 .modal__form-label {
   position: relative;
   height: 45px;
 }
 
+.lower-label {
+  max-height: 48px;
+}
+
 .modal__input {
   width: 358px;
-  /* max-height: 28px; */
   height: 28px;
   margin: 0 36px 29px;
   display: flex;
@@ -147,7 +147,6 @@
   line-height: 17px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  /* padding-bottom: 13px; */
   position: relative;
 }
 
@@ -163,7 +162,6 @@
   color: red;
   display: flex;
   margin: 0 36px 13px;
-  /* top: 28px; */
   font-size: 12px;
   line-height: 14.5px;
   font-family: Inter, "Segou UI", sans-serif;

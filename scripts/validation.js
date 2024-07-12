@@ -43,13 +43,10 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
     }
   });
   if (!hasValidInput(inputEls)) {
-    // submitButton.classList.add(inactiveButtonClass);
-    // submitButton.disabled = true;
     disableButton(submitButton, { inactiveButtonClass });
     return;
   }
-  //   submitButton.classList.remove(inactiveButtonClass);
-  //   submitButton.disabled = false;
+
   enableButton(submitButton, { inactiveButtonClass });
 }
 
@@ -76,13 +73,11 @@ function enableValidation(options) {
   });
 }
 
-const config = {
+enableValidation({
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__input-error",
-};
-
-enableValidation(config);
+});
