@@ -71,14 +71,8 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   // Remove the event listener
-  document.removeEventListener("click", (event) =>
-    handleOutsideClick(event, modal)
-  );
-  document.removeEventListener("keydown", (event) => {
-    if (event.key === "Escape" || event.key === "Esc") {
-      handleEscapePress(modal);
-    }
-  });
+  document.removeEventListener("click", handleOutsideClick);
+  document.removeEventListener("keydown", handleEscapePress);
 }
 
 function renderCard(cardEl, container) {
@@ -86,14 +80,7 @@ function renderCard(cardEl, container) {
 }
 
 function handleOutsideClick(event, modal) {
-  const conditions = [
-    event.target.classList.contains("open-modal-btn"),
-    event.target.closest(".modal__container"),
-    event.target.classList.contains("modal-image__picture"),
-    event.target.classList.contains("card__image"),
-  ];
-
-  if (conditions.every((condition) => !condition)) {
+  if (!event.target.closest(".modal-element")) {
     closeModal(modal);
   }
 }

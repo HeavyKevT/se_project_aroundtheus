@@ -30,14 +30,14 @@
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
-              class="profile__edit-button button open-modal-btn"
+              class="profile__edit-button button open-modal-btn modal-element"
               type="button"
               aria-label="edit"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button
-            class="profile__add-button button open-modal-btn"
+            class="profile__add-button button open-modal-btn modal-element"
             type="button"
             aria-label="add"
           ></button>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="modal" id="profile-edit-modal">
-      <div class="modal__container">
+      <div class="modal__container modal-element">
         <button id="editCloseButton" class="modal__close button"></button>
         <h3 class="modal__heading">Edit profile</h3>
         <form class="modal__form" id="profile-form" novalidate>
@@ -98,7 +98,7 @@
     </div>
 
     <div class="modal" id="profile-add-modal">
-      <div class="modal__container">
+      <div class="modal__container modal-element">
         <button id="addCloseButton" class="modal__close button"></button>
         <h3 class="modal__heading">New Place</h3>
         <form id="add-modal-form" class="modal__form" novalidate>
@@ -148,7 +148,7 @@
             class="modal__close modal__close_image button"
           ></button>
           <figure class="modal-image__inner-container">
-            <img class="modal-image__picture" />
+            <img class="modal-image__picture modal-element" />
           </figure>
           <figcaption class="modal-image__title"></figcaption>
         </div>
@@ -158,7 +158,7 @@
     <template id="card-template">
       <li id="card" class="card">
         <button class="card__trash-button button"></button>
-        <img class="card__image" src="" alt="" />
+        <img class="card__image modal-element" src="" alt="" />
         <div class="card__label">
           <h2 class="card__label-name"></h2>
           <button
