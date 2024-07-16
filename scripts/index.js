@@ -51,42 +51,55 @@ const imageModalPicture = imageModal.querySelector(".modal-image__picture");
 const closeButtons = document.querySelectorAll(".modal__close");
 const modalElement = document.querySelector(".modal");
 const openButton = document.querySelector(".open-modal-btn");
+// Store references to the current handlers
+let outsideClickHandler, escapePressHandler;
 
 /**********
  Functions
  **********/
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  // Use an arrow function to pass the specific modal to handleOutsideClick
-  document.addEventListener("click", (event) =>
-    handleOutsideClick(event, modal)
-  );
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" || event.key === "Esc") {
-      handleEscapePress(modal);
-    }
-  });
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  // Remove the event listener
-  document.removeEventListener("click", handleOutsideClick);
-  document.removeEventListener("keydown", handleEscapePress);
-}
-
 function renderCard(cardEl, container) {
   container.prepend(cardEl);
 }
 
-function handleOutsideClick(event, modal) {
-  if (!event.target.closest(".modal-element")) {
-    closeModal(modal);
-  }
+// Define event handlers outside the modal functions
+function handleOutsideClick(modal) {
+  return function (event) {
+    if (!event.target.closest(".modal-element")) {
+      closeModal(modal);
+    }
+  };
 }
 
 function handleEscapePress(modal) {
-  closeModal(modal);
+  return function (event) {
+    if (event.key === "Escape" || event.key === "Esc") {
+      closeModal(modal);
+    }
+  };
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+
+  // Create handlers
+  outsideClickHandler = handleOutsideClick(modal);
+  escapePressHandler = handleEscapePress(modal);
+
+  document.addEventListener("click", outsideClickHandler);
+  document.addEventListener("keydown", escapePressHandler);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+
+  if (outsideClickHandler && escapePressHandler) {
+    document.removeEventListener("click", outsideClickHandler);
+    document.removeEventListener("keydown", escapePressHandler);
+  }
+
+  // Clear handler references
+  outsideClickHandler = null;
+  escapePressHandler = null;
 }
 
 /*****************
